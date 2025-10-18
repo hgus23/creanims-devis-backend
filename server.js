@@ -1,0 +1,12 @@
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const pdfRoutes = require('./routes/pdf');
+
+const app = express();
+app.use(cors());
+app.use(bodyParser.json());
+app.use('/api', pdfRoutes);
+
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
